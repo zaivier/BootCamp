@@ -1,0 +1,11 @@
+yarn add express
+yarn add @types/express -D
+yarn add typescript -D
+yarn tsc --init
+yarn tsc - Inicializa
+yarn add ts-node-dev -D
+
+
+--transpileOnly - Para não validar o código
+--ignore-watch node_modules - para ignorar a pasta node_modules no watch de atualização automatica
+
