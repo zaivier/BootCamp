@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
+import { Transform } from 'stream';
 import siginBackground from '../../asssets/sign-in-background.png';
 
 const ff9000 = '#ff9000';
@@ -18,7 +19,25 @@ export const Content = styled.div`
 
   max-width: 700px;
   width: 100%;
+`;
+const appearFromLeft = keyframes`
+from{
+  opacity: 0;
+  transform: translateX(-50px);
+}
+to{
+  opacity: 1;
+  transform: translateX(0);
+}
+;
+`;
+export const AnimationContainer = styled.div`
+  display: flex;
+  place-content: center;
+  align-items: center;
+  flex-direction: column;
 
+  animation: ${appearFromLeft} 1s;
   form {
     margin: 80px 0;
     width: 340px;
