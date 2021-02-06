@@ -6,7 +6,10 @@ yarn tsc - Inicializa
 yarn add ts-node-dev -D
 yarn typeorm migration:run
 yarn run dev:server
+yarn add nodemailer
+yarn add @types/nodemailer
 
+yarn typeorm migration:create -n CreateUserTokens
 
 Interessante como typescript consegue adicionar tipos em variaveis ja existentes do sistema. *Override
 
@@ -15,3 +18,8 @@ Interessante como typescript consegue adicionar tipos em variaveis ja existentes
 --transpileOnly - Para não validar o código
 --ignore-watch node_modules - para ignorar a pasta node_modules no watch de atualização automatica
 
+
+
+**RF** => Requisitos funcionais
+**RNF** => Requisitos não funcionais
+**RN** => Regras de Negócio
