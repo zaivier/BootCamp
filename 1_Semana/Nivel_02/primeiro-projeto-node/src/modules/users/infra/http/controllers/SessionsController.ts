@@ -20,7 +20,7 @@ export default class SessionsController {
         token,
       });
     } catch (err) {
-      return response.status(err.statusCode).json({ error: err.message });
+      return response.status(500).json({ error: err.message });
     }
   }
 }

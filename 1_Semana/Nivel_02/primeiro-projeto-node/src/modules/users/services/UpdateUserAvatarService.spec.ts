@@ -7,16 +7,21 @@ import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import FakeHashProvider from '../providers/HashProviders/fakes/FakeHashProvider';
 import FakeStorageProvider from '../providers/StorageProviders/fakes/FakeStorageProvider';
 
+let fakeUsersRepository: FakeUsersRepository;
+let fakeHashProvider: FakeHashProvider;
+let fakeStorageProvider: FakeStorageProvider;
+let updateUser: UpdateUserAvatarService;
 describe('UpdateUserAvatar', () => {
-  it('should be able to update the User Avatar', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-    const fakeStorageProvider = new FakeStorageProvider();
-    const updateUser = new UpdateUserAvatarService(
+  beforeEach(() => {
+    fakeUsersRepository = new FakeUsersRepository();
+    fakeHashProvider = new FakeHashProvider();
+    fakeStorageProvider = new FakeStorageProvider();
+    updateUser = new UpdateUserAvatarService(
       fakeUsersRepository,
       fakeStorageProvider,
     );
-
+  });
+  it('should be able to update the User Avatar', async () => {
     const user = await fakeUsersRepository.create({
       name: 'Athus',
       email: 'fulano@example.com',
@@ -31,14 +36,6 @@ describe('UpdateUserAvatar', () => {
     expect(updateAvatarUser.avatar).toBe('avatar.jpg');
   });
   it('should not be able to update the User Avatar from none existing user', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-    const fakeStorageProvider = new FakeStorageProvider();
-    const updateUser = new UpdateUserAvatarService(
-      fakeUsersRepository,
-      fakeStorageProvider,
-    );
-
     expect(
       updateUser.execute({
         user_id: 'quistoNoExiste',
@@ -47,14 +44,6 @@ describe('UpdateUserAvatar', () => {
     ).rejects.toBeInstanceOf(AppError);
   });
   it('should be delete old avatar and update to new one', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-    const fakeStorageProvider = new FakeStorageProvider();
-    const updateUser = new UpdateUserAvatarService(
-      fakeUsersRepository,
-      fakeStorageProvider,
-    );
-
     // O jest verifica se a função deleteFile foi disparada.
     const deleteFile = jest.spyOn(fakeStorageProvider, 'deleteFile');
 

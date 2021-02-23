@@ -16,7 +16,7 @@ describe('SendForgorPasswordEmail', () => {
     fakeUsersRepository = new FakeUsersRepository();
 
     fakeMailProvider = new FakeMailProvider();
-
+    fakeUserTokensRepository = new FakeUserTokensRepository();
     sendForgotPasswordEmail = new SendForgotPasswordEmailService(
       fakeUsersRepository,
       fakeMailProvider,

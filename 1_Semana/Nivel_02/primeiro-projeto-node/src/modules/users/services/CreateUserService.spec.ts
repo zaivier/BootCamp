@@ -32,7 +32,7 @@ describe('CreateUser', () => {
 
     const RepetEmail = 'athuskz@gmail.com';
 
-    const userCreated = await createUser.execute({
+    await createUser.execute({
       name: 'Athus',
       email: RepetEmail,
       password: 'hakunaMatata',

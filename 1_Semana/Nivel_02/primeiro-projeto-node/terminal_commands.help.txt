@@ -9,6 +9,8 @@ yarn run dev:server
 yarn add nodemailer
 yarn add @types/nodemailer
 
+yarn typeorm migration:create -n AddUserIdToAppointments
+
 yarn typeorm migration:create -n CreateUserTokens
 
 Interessante como typescript consegue adicionar tipos em variaveis ja existentes do sistema. *Override

@@ -1,0 +1,11 @@
+docker run --name gostack_gobarber -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+
+
+--Lista containers que estão ativos
+sudo docker ps
+
+--Lista todos os containers
+sudo docker ps -a
+
+--Starta container especifico
+docker start (id)
