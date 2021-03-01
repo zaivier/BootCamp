@@ -18,6 +18,7 @@ describe('ListProviderDayAvalilability', () => {
     for await (const index of arrayNumeros) {
       fakeAppointments.create({
         provider_id: 'user',
+        user_id: 'user',
         date: new Date(2020, 4, 20, index, 0, 0),
       });
     }
