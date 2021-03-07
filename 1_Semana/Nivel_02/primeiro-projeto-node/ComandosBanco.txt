@@ -9,3 +9,5 @@ sudo docker ps -a
 
 --Starta container especifico
 docker start (id)
+
+

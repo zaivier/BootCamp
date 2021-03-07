@@ -1,3 +1,4 @@
+import { classToClass } from 'class-transformer';
 import User from '@modules/users/infra/typeorm/entities/User';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
@@ -30,9 +31,7 @@ export default class ProfileController {
         old_password,
       });
 
-      delete user.password;
-
-      return response.json(user);
+      return response.json(classToClass(user));
     } catch (err) {
       return response.status(500).json({ error: err.message });
     }

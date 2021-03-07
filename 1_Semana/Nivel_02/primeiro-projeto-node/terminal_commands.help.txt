@@ -8,8 +8,11 @@ yarn typeorm migration:run
 yarn run dev:server
 yarn add nodemailer
 yarn add @types/nodemailer
-
+yarn add mongodb
 yarn typeorm migration:create -n AddUserIdToAppointments
+yarn add class-transformer
+yarn add @types/mongodb -D
+ yarn add dotenv
 
 yarn typeorm migration:create -n CreateUserTokens
 
@@ -20,8 +23,33 @@ Interessante como typescript consegue adicionar tipos em variaveis ja existentes
 --transpileOnly - Para não validar o código
 --ignore-watch node_modules - para ignorar a pasta node_modules no watch de atualização automatica
 
+celebrate utiliza Joi Schema validation
+yarn add celebrate
 
+add types for Joi
+yarn add @types/hapi__joi -D
 
 **RF** => Requisitos funcionais
 **RNF** => Requisitos não funcionais
 **RN** => Regras de Negócio
+
+Instal Docker Mongo
+docker run --name mongodb -p27017:27017 -d -t mongo
+
+
+Icones Material:
+
+  "material-icon-theme.folders.associations": {
+        "infra": "app",
+        "entities":"class",
+        "schemas":"class",
+        "typeorm":"database",
+        "repositories":"mappings",
+        "http":"container",
+        "migrations":"modules",
+        "implementations":"core",
+        "dtos":"typescript",
+        "fakes":"mock",
+        "websockets":"pipe"
+
+    },
